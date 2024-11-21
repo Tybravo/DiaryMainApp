@@ -29,19 +29,21 @@ public class DiaryServiceImpl implements DiaryService {
     }
 
     @Override
-    public void loginUsername(String username) {
+    public Diary loginUsername(String username) {
         Diary fetchedUsername = diaryRepository.findById(username.toLowerCase());
         if (fetchedUsername == null) {
             throw new IllegalArgumentException("Cannot find username");
         }
+        return fetchedUsername;
     }
 
     @Override
-    public void loginPassword(String password) {
+    public Diary loginPassword(String password) {
         Diary fetchedPassword = diaryRepository.findByPass(password.toLowerCase());
         if (fetchedPassword == null) {
             throw new IllegalArgumentException("Wrong password");
         }
+        return fetchedPassword;
     }
 
     @Override

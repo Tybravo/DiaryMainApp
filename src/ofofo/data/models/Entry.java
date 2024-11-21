@@ -21,7 +21,18 @@ public class Entry {
         }
 
 
-        public int getId() {
+    @Override
+    public String toString() {
+        return "Entry{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                ", localDate=" + localDate +
+                '}';
+    }
+
+    public int getId() {
             return id;
         }
 

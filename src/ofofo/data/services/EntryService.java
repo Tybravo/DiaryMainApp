@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface EntryService {
     //Entry save(Entry entry);
-    void saveEntryWithDiaryId(String username, String title, String body);
+    Entry saveEntryWithDiaryId(String username, String title, String body);
     Entry save(Entry entry);
     List<Entry> findByTitle(String title);
     void delete(int id);

@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EntryServiceImpl implements EntryService {
-    private final DiaryRepository diaryRepository = new DiaryRepositoryImpl();
-    private final DiaryService diaryService = new DiaryServiceImpl();
+    private static final DiaryRepository diaryRepository = new DiaryRepositoryImpl();
+    private static final DiaryService diaryService = new DiaryServiceImpl();
     private final List<Entry> entries;
     private long count = 0;
 
@@ -21,7 +21,7 @@ public class EntryServiceImpl implements EntryService {
 
 
     @Override
-    public void saveEntryWithDiaryId(String username, String title, String body) {
+    public Entry saveEntryWithDiaryId(String username, String title, String body) {
         Diary user = diaryService.findById(username.toLowerCase());
         Entry entry = new Entry(username, title, body);
         entry.setUsername(username.toLowerCase());
@@ -30,6 +30,7 @@ public class EntryServiceImpl implements EntryService {
 
         entries.add(entry);
         count++;
+        return entry;
     }
 
 
